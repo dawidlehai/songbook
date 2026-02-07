@@ -40,7 +40,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
           git add .
-          git commit -m "Deploy PR #${PR_NUMBER} preview" || echo "No changes to commit"
+          git commit -m "Deploy PR #${PR_NUMBER} preview" || echo "No changes detected in preview deployment"
           git push
 
       - name: Comment PR
@@ -99,7 +99,7 @@ jobs:
             git config user.email "github-actions[bot]@users.noreply.github.com"
             
             git rm -rf "$PR_DIR"
-            git commit -m "Clean up PR #${PR_NUMBER} preview" || echo "No changes to commit"
+            git commit -m "Clean up PR #${PR_NUMBER} preview" || echo "No changes to clean up"
             git push
           else
             echo "Preview directory not found, nothing to clean up"
